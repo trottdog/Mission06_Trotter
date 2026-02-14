@@ -1,0 +1,63 @@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Add a Movie</title>
+</head>
+<body>
+<h2>Add a Movie</h2>
+
+<form asp-action="AddMovie" method="post">
+
+    <label>Category:</label>
+    <input asp-for="Category" required />
+    <br />
+
+    <label>Title:</label>
+    <input asp-for="Title" required />
+    <br />
+
+    <label>Year:</label>
+    <input asp-for="Year" type="number" required />
+    <br />
+
+    <label>Director:</label>
+    <input asp-for="Director" required />
+    <br />
+
+    <label>Rating:</label>
+    <select asp-for="Rating" required>
+        <option value="">Select Rating</option>
+        <option>G</option>
+        <option>PG</option>
+        <option>PG-13</option>
+        <option>R</option>
+    </select>
+    <br />
+
+    <label>Edited:</label>
+    <select asp-for="Edited">
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+    </select>
+    <br />
+
+    <label>Lent To:</label>
+    <input asp-for="LentTo" />
+    <br />
+
+    <label>Notes (max 25 chars):</label>
+    <input asp-for="Notes" maxlength="25" />
+    <br />
+
+    <button type="submit">Submit</button>
+
+</form>
+
+<div asp-validation-summary="All"></div>
+</body>
+</html>

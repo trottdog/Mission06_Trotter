@@ -6,9 +6,9 @@ namespace Mission06_Trotter.Controllers
 {
 public class HomeController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly MoviesContext _context;
 
-        public HomeController(ApplicationDbContext context)
+        public HomeController(MoviesContext context)
         {
             _context = context;
         }

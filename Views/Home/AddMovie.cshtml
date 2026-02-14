@@ -1,65 +1,77 @@
-@{
-    ViewData["Title"] = "Home Page";
-}
-
 @model Mission06_Trotter.Models.Movie
 
-<!DOCTYPE html>
+@{
+    ViewData["Title"] = "Add a Movie";
+}
 
-<html>
-<head>
-    <title>Add a Movie</title>
-</head>
-<body>
-<h2>Add a Movie</h2>
+<h2 class="mb-4">Add a Movie</h2>
 
-<form asp-action="AddMovie" method="post">
+<form asp-action="AddMovie" method="post" class="needs-validation" novalidate>
+    <div asp-validation-summary="All" class="text-danger mb-3"></div>
 
-    <label>Category:</label>
-    <input asp-for="Category" required />
-    <br />
+    <div class="row g-3">
+        <div class="col-12">
+            <label asp-for="Category" class="form-label"></label>
+            <input asp-for="Category" class="form-control" />
+            <span asp-validation-for="Category" class="text-danger"></span>
+        </div>
 
-    <label>Title:</label>
-    <input asp-for="Title" required />
-    <br />
+        <div class="col-12">
+            <label asp-for="Title" class="form-label"></label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
 
-    <label>Year:</label>
-    <input asp-for="Year" type="number" required />
-    <br />
+        <div class="col-md-4">
+            <label asp-for="Year" class="form-label"></label>
+            <input asp-for="Year" class="form-control" type="number" />
+            <span asp-validation-for="Year" class="text-danger"></span>
+        </div>
 
-    <label>Director:</label>
-    <input asp-for="Director" required />
-    <br />
+        <div class="col-md-8">
+            <label asp-for="Director" class="form-label"></label>
+            <input asp-for="Director" class="form-control" />
+            <span asp-validation-for="Director" class="text-danger"></span>
+        </div>
 
-    <label>Rating:</label>
-    <select asp-for="Rating" required>
-        <option value="">Select Rating</option>
-        <option>G</option>
-        <option>PG</option>
-        <option>PG-13</option>
-        <option>R</option>
-    </select>
-    <br />
+        <div class="col-md-4">
+            <label asp-for="Rating" class="form-label"></label>
+            <select asp-for="Rating" class="form-select">
+                <option value="">Select Rating</option>
+                <option>G</option>
+                <option>PG</option>
+                <option>PG-13</option>
+                <option>R</option>
+            </select>
+            <span asp-validation-for="Rating" class="text-danger"></span>
+        </div>
 
-    <label>Edited:</label>
-    <select asp-for="Edited">
-        <option value="true">Yes</option>
-        <option value="false">No</option>
-    </select>
-    <br />
+        <div class="col-md-4">
+            <label asp-for="Edited" class="form-label"></label>
+            <select asp-for="Edited" class="form-select">
+                <option value="false">No</option>
+                <option value="true">Yes</option>
+            </select>
+            <span asp-validation-for="Edited" class="text-danger"></span>
+        </div>
 
-    <label>Lent To:</label>
-    <input asp-for="LentTo" />
-    <br />
+        <div class="col-md-4">
+            <label asp-for="LentTo" class="form-label">Lent To</label>
+            <input asp-for="LentTo" class="form-control" />
+            <span asp-validation-for="LentTo" class="text-danger"></span>
+        </div>
 
-    <label>Notes (max 25 chars):</label>
-    <input asp-for="Notes" maxlength="25" />
-    <br />
+        <div class="col-12">
+            <label asp-for="Notes" class="form-label">Notes (max 25 chars)</label>
+            <input asp-for="Notes" class="form-control" maxlength="25" />
+            <div class="form-text">Optional. Keep it short.</div>
+            <span asp-validation-for="Notes" class="text-danger"></span>
+        </div>
 
-    <button type="submit">Submit</button>
-
+        <div class="col-12 d-flex gap-2 mt-2">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+        </div>
+    </div>
 </form>
 
-<div asp-validation-summary="All"></div>
-</body>
-</html>

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mission06_Trotter")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+789f3db95ee4b01b6332ded16df925a4ef1ec274")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+70ca9faf64742aaafbb4d97e5ec297cb698011dc")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mission06_Trotter")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mission06_Trotter")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

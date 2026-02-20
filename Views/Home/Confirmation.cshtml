@@ -1,17 +1,20 @@
+@model Movie
+
 @{
-    Layout = null;
+    ViewData["Title"] = "Confirmation";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title>Confirmation</title>
-</head>
-<body>
-<div>
-    <h2>Movie successfully added!</h2>
-    <a asp-action="Index">Return Home</a>
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h2 class="card-title text-success">Movie successfully added</h2>
+        <p class="mb-3">
+            Saved: <strong>@Model.Title</strong> (@Model.Year)
+            in <strong>@Model.Category?.CategoryName</strong> with ID <strong>@Model.MovieId</strong>.
+        </p>
+        <div class="d-flex gap-2">
+            <a class="btn btn-primary" asp-action="PrintTable">View Movies</a>
+            <a class="btn btn-outline-secondary" asp-action="AddMovie">Add Another</a>
+            <a class="btn btn-outline-secondary" asp-action="Index">Return Home</a>
+        </div>
+    </div>
 </div>
-</body>
-</html>

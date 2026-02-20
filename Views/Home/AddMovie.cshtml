@@ -4,16 +4,21 @@
     ViewData["Title"] = "Add a Movie";
 }
 
-<h2 class="mb-4">Add a Movie</h2>
+<h2 class="mb-4" xmlns="http://www.w3.org/1999/html">Add a Movie</h2>
 
-<form asp-action="AddMovie" method="post" class="needs-validation" novalidate>
+<form asp-action="@(Model.MovieId == 0 ? "AddMovie" : "Edit")" method="post" class="needs-validation" novalidate>
     <div asp-validation-summary="All" class="text-danger mb-3"></div>
 
+    <div>
+        <input type="hidden" asp-for="MovieId"/>
+    </div>
     <div class="row g-3">
         <div class="col-12">
-            <label asp-for="Category" class="form-label"></label>
-            <input asp-for="Category" class="form-control" />
-            <span asp-validation-for="Category" class="text-danger"></span>
+            <label asp-for="CategoryId" class="form-label">Category</label>
+            <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="form-select">
+                <option value="">Choose a Category</option>
+            </select>
+            <span asp-validation-for="CategoryId" class="text-danger"></span>
         </div>
 
         <div class="col-12">
@@ -54,6 +59,15 @@
             </select>
             <span asp-validation-for="Edited" class="text-danger"></span>
         </div>
+        
+        <div class="col-md-4">
+            <label asp-for="CopiedToPlex" class="form-label">Copied to Plex</label>
+            <select asp-for="CopiedToPlex" class="form-select">
+                <option value="false">No</option>
+                <option value="true">Yes</option>
+            </select>
+            <span asp-validation-for="CopiedToPlex" class="text-danger"></span>
+        </div>
 
         <div class="col-md-4">
             <label asp-for="LentTo" class="form-label">Lent To</label>
@@ -74,4 +88,3 @@
         </div>
     </div>
 </form>
-
